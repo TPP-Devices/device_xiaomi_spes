@@ -4,8 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-PRODUCT_COMPATIBILITY_MATRIX_FILE := device/xiaomi/spes/configs/hidl/compatibility_matrix.xml
-
 # Disable dexpreopt for crashrecovery module
 PRODUCT_SYSTEM_SERVER_DEX_PREOPT_DISABLED_MODULES += service-crashrecovery
 DONT_DEXPREOPT_BOOT_JARS += service-crashrecovery
@@ -606,10 +604,6 @@ PRODUCT_PACKAGES += \
 
 # Include debug tool
 $(call inherit-product, hardware/samsung-ext/interfaces/debug-tools/debug.mk)
-
-# Include Leica//Miui Camera
-$(call inherit-product, vendor/xiaomi/miuicamera/config.mk)
-$(call soong_config_set,camera,package_name,com.android.camera)
 
 # Remove unnecessary system apps (e.g., AudioFX)
 PRODUCT_PACKAGES += \
