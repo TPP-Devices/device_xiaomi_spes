@@ -4,6 +4,17 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+PRODUCT_COMPATIBILITY_MATRIX_FILE := device/xiaomi/spes/configs/hidl/compatibility_matrix.xml
+
+# Disable dexpreopt for crashrecovery module
+PRODUCT_SYSTEM_SERVER_DEX_PREOPT_DISABLED_MODULES += service-crashrecovery
+DONT_DEXPREOPT_BOOT_JARS += service-crashrecovery
+DONT_DEXPREOPT_APEX_JARS += service-crashrecovery
+
+# Remove from boot jars and apex jars
+PRODUCT_BOOT_JARS := $(filter-out service-crashrecovery,$(PRODUCT_BOOT_JARS))
+PRODUCT_APEX_SYSTEM_SERVER_JARS := $(filter-out com.android.crashrecovery:service-crashrecovery,$(PRODUCT_APEX_SYSTEM_SERVER_JARS))
+
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
