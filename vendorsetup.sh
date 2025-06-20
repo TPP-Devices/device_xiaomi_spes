@@ -7,8 +7,7 @@ END="\033[0m"
 VENDOR_BRANCH="vic"
 KERNEL_BRANCH="15.0"
 HARDWARE_BRANCH="15.0"
-DEBUG_BRANCH="lineage-22"
-LEICA_CAMERA_BRANCH="leica-5.0"
+DEBUG_BRANCH="16.0"
 
 check_dir() {
     if [ -d "$1" ]; then
@@ -48,7 +47,7 @@ fi
 
 if check_dir hardware/samsung-ext/interfaces; then
     echo -e "${GREEN}Cloning Debugging-Tools from spes-development (branch: ${YELLOW}$DEBUG_BRANCH${GREEN})...${END}"
-    git clone https://github.com/spes-development/hardware_samsung-extra_interfaces -b $DEBUG_BRANCH hardware/samsung-ext/interfaces
+    git clone https://github.com/Yograt/hardware_samsung-extra_interfaces -b $DEBUG_BRANCH hardware/samsung-ext/interfaces
 fi
 
 if check_dir vendor/xiaomi/miuicamera; then
