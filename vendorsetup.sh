@@ -5,9 +5,9 @@ YELLOW="\033[1;33m"
 END="\033[0m"
 
 VENDOR_BRANCH="16.0"
-KERNEL_BRANCH="16.0"
-HARDWARE_BRANCH="15.0"
-DEBUG_BRANCH="lineage-22"
+KERNEL_BRANCH="YogratBuilds"
+HARDWARE_BRANCH="bka"
+DEBUG_BRANCH="bka"
 
 check_dir() {
     if [ -d "$1" ]; then
@@ -42,7 +42,7 @@ fi
 
 if check_dir hardware/xiaomi; then
     echo -e "${GREEN}Cloning hardware sources from spes-development (branch: ${YELLOW}$HARDWARE_BRANCH${GREEN})...${END}"
-    git clone https://github.com/spes-development/hardware_xiaomi -b $HARDWARE_BRANCH hardware/xiaomi
+    git clone https://github.com/Evolution-X-Devices/hardware_xiaomi -b $HARDWARE_BRANCH hardware/xiaomi
 fi
 
 if check_dir hardware/samsung-ext/interfaces; then
